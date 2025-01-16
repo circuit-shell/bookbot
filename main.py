@@ -5,27 +5,24 @@ def main():
         file_contents = f.read()
         words = file_contents.split()
         word_count = len(words)
-        print(f"Number of words: {word_count}")
+        print(f"{word_count} words found in the document.")
         char_count = count_characters(file_contents)
         for char, count in char_count.items():
-            print(f"The character '{char}' was foung {count} times.")
+
+            if char.isalpha():
+                print(f"The '{char}' character was foung {count} times.")
     print("--- End report ---")
 
 
 def count_characters(text):
-    # Initialize empty dictionary to store character counts
     char_count = {}
-
-    # Convert text to lowercase
     text = text.lower()
-
-    # Count each character
     for char in text:
         if char in char_count:
             char_count[char] += 1
         else:
             char_count[char] = 1
-
+    char_count = dict(sorted(char_count.items(), key=lambda item: item[0]))
     return char_count
 
 
