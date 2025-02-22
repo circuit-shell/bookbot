@@ -1,12 +1,16 @@
-from stats import (
-    get_num_words,
-    chars_dict_to_sorted_list,
-    get_chars_dict,
-)
+import sys
+
+from stats import chars_dict_to_sorted_list, get_chars_dict, get_num_words
 
 
 def main():
-    book_path = "books/frankenstein.txt"
+
+    if len(sys.argv) != 2:
+        print("Usage: python main.py <path_to_file>")
+        sys.exit(1)
+
+    book_path = sys.argv[1]
+
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     chars_dict = get_chars_dict(text)
@@ -34,4 +38,3 @@ def print_report(book_path, num_words, chars_sorted_list):
 
 
 main()
-
