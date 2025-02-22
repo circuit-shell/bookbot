@@ -1,4 +1,3 @@
 # BookBot
 
-This is my first guided project in python from [book.dev](https://book.dev)
-course.
+BookBot is my first [Boot.dev](https://www.boot.dev) project!
